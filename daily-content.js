@@ -95,7 +95,7 @@ const DAILY_CONTENT = {
         timeToFirstDollar: "2-3 months",
         potentialIncome: "$500-$5,000/month within 6-12 months",
         description: "Newsletters enable you to talk directly to your ideal customer who are already interested in what you have to say and offer.",
-        whyItWorks: "Key benefits...",
+        whyItWorks: "This method of community building is better than most because it doesn't depend on a social media account that could get banned, deleted, or any other issue.",
         firstSteps: [
             "Step 1: Define Your Target Audience",
             "Step 2: Create High Quality Content",
