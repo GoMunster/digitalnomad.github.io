@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Daily curated content for digital nomads and remote workers">
+    <meta name="description" content="Daily curated content for digital nomads and remote workers - No bullshit, just what you need today">
     <title>Digital Nomad Daily Essentials</title>
     <style>
         :root {
@@ -15,13 +15,16 @@
             --border-color: #e0e0e0;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --highlight: #FF6B6B;
+            --youtube-red: #FF0000;
+            --podcast-purple: #9333EA;
+            --book-gold: #F59E0B;
         }
 
         [data-theme="dark"] {
             --primary-color: #FF6B6B;
             --secondary-color: #4ECDC4;
-            --background: #1a1a1a;
-            --card-bg: #2d2d2d;
+            --background: #0f0f0f;
+            --card-bg: #1a1a1a;
             --text-color: #f0f0f0;
             --border-color: #404040;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -43,38 +46,143 @@
             padding: 0 1.5rem;
             background: var(--background);
             color: var(--text-color);
+            counter-reset: section;
         }
         
         h1 {
             color: var(--primary-color);
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-bottom: 3rem;
         }
         
         section {
             background: var(--card-bg);
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             border-radius: 16px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(2) { animation-delay: 0.05s; }
+        section:nth-child(3) { animation-delay: 0.1s; }
+        section:nth-child(4) { animation-delay: 0.15s; }
+        section:nth-child(5) { animation-delay: 0.2s; }
+        section:nth-child(6) { animation-delay: 0.25s; }
+        section:nth-child(7) { animation-delay: 0.3s; }
+        section:nth-child(8) { animation-delay: 0.35s; }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Focus section - hero treatment */
+        .focus-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            border: none;
+        }
+
+        .focus-section h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .focus-section p {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Featured sections - video and podcast */
+        .featured-section {
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (min-width: 768px) {
+            .featured-section {
+                padding: 2.5rem;
+            }
+        }
+
+        /* Color-coded sections */
+        .video-section {
+            border-left: 4px solid var(--youtube-red);
+        }
+
+        .podcast-section {
+            border-left: 4px solid var(--podcast-purple);
+        }
+
+        .book-section {
+            border-left: 4px solid var(--book-gold);
+        }
+
+        /* Quick sections - tips and smaller content */
+        .quick-section {
+            padding: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .quick-section {
+                padding: 1.5rem;
+            }
         }
         
         h2 {
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         h3 {
             color: var(--text-color);
             margin-bottom: 1rem;
+            font-size: 1.8rem;
+            line-height: 1.2;
         }
         
         p {
@@ -92,6 +200,12 @@
             cursor: pointer;
             box-shadow: var(--shadow);
             z-index: 100;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .media-container {
@@ -101,6 +215,19 @@
             overflow: hidden;
             max-width: 100%;
             margin-bottom: 1rem;
+            border-radius: 12px;
+            background: var(--border-color);
+        }
+
+        .media-container::before {
+            content: 'Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-color);
+            opacity: 0.5;
+            z-index: 0;
         }
         
         .media-container iframe {
@@ -109,21 +236,47 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .podcast-container {
+            position: relative;
+            height: 175px;
+            margin-bottom: 0.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .podcast-container iframe {
+            width: 100%;
+            height: 100%;
         }
 
         .book-container {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: start;
         }
         
         .book-image {
-            flex: 0 0 200px;
-            max-width: 200px;
+            flex: 0 0 180px;
+            max-width: 180px;
         }
         
         .book-details {
             flex: 1;
+        }
+
+        .book-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-details p:first-of-type {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
         }
 
         .gadget-container {
@@ -138,39 +291,14 @@
             overflow: hidden;
         }
 
-        .blog-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .blog-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-        }
-
-        .community-card {
-            display: flex;
-            gap: 2rem;
-            align-items: start;
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 1rem;
-        }
-
-        .community-image {
-            flex: 0 0 150px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
         .tip {
             background: var(--secondary-color);
             color: white;
             padding: 1.5rem;
             border-radius: 12px;
-            margin: 1rem 0;
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .resource {
@@ -178,24 +306,42 @@
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            margin: 1rem 0;
+            margin: 0;
+            position: relative;
+            padding-top: 1rem;
+        }
+
+        .resource h3 {
+            font-size: 1.5rem;
+        }
+
+        .resource ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource ul li {
+            margin-bottom: 0.5rem;
         }
 
         .cta-button {
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s ease;
             margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
             text-decoration: none;
         }
 
@@ -221,6 +367,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: var(--shadow);
+            border: none;
         }
 
         .social-button:hover {
@@ -238,13 +385,53 @@
         }
 
         footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem 1.5rem;
             text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            color: var(--text-color);
+            border-radius: 16px;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .affiliate-disclosure {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .focus-section {
+                padding: 2rem 1.5rem;
+                font-size: 1.2rem;
+            }
+
+            .focus-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .focus-section p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
             .social-share-container {
                 position: fixed;
                 left: 0;
@@ -255,8 +442,10 @@
                 flex-direction: row;
                 justify-content: center;
                 background: var(--card-bg);
-                padding: 10px;
+                padding: 15px 10px;
                 box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+                border-top: 1px solid var(--border-color);
             }
 
             .social-button:hover {
@@ -264,25 +453,25 @@
             }
 
             body {
-                margin-bottom: 70px;
+                margin-bottom: 90px;
+                padding-bottom: 1rem;
             }
 
             .book-container,
-            .gadget-container,
-            .community-card {
+            .gadget-container {
                 flex-direction: column;
             }
 
             .book-image,
-            .gadget-image,
-            .community-image {
-                max-width: 100%;
+            .gadget-image {
+                max-width: 200px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 <body>
-    <button class="theme-switch" onclick="toggleTheme()">🌓</button>
+    <button class="theme-switch" onclick="toggleTheme()" aria-label="Toggle dark mode">🌓</button>
 
     <!-- Social Share Buttons -->
     <div class="social-share-container">
@@ -306,185 +495,140 @@
     </div>
 
     <h1>✨ DIGITAL NOMAD DAILY</h1>
+    <p class="tagline">One page. Zero bullshit. Everything you need today.</p>
 
-    <section>
-        <h2>🎯 TODAY'S FOCUS</h2>
+    <section class="focus-section">
+        <h2>TODAY'S FOCUS</h2>
         <p>Stop procrastinating on your side hustle. The best time to start was yesterday. The second best time is right fucking now.</p>
     </section>
 
-   <section>
-        <h2>🎥 VIDEO OF THE DAY</h2>
+    <section class="featured-section video-section">
+        <h2>🎥 VIDEO</h2>
         <div class="media-container">
-            <!-- For YouTube, you only need the video ID from the URL -->
-            <!-- For example, if your URL is https://www.youtube.com/watch?v=abc123xyz -->
-            <!-- Then your video ID is abc123xyz -->
             <iframe 
                 src="https://www.youtube.com/embed/23OxV24mvuU" 
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
+                allowfullscreen
+                loading="lazy">
             </iframe>
         </div>
-        <p><strong>Today's Topic:</strong> How I Built a 6-Figure Business While Traveling</p>
+        <p><strong>How I Built a 6-Figure Business While Traveling</strong></p>
     </section>
 
-    <section>
-        <h2>🎧 PODCAST OF THE DAY</h2>
-        <div class="media-container" style="padding-bottom: 160px; /* Adjusted for podcast player height */">
+    <section class="featured-section podcast-section">
+        <h2>🎧 LISTEN</h2>
+        <div class="podcast-container">
             <iframe 
                 src="https://embed.podcasts.apple.com/us/podcast/id1569923210?i=1000673280580" 
                 frameborder="0" 
                 allowtransparency="true" 
                 allow="encrypted-media"
-                loading="lazy"
-                style="height: 160px;">
+                loading="lazy">
             </iframe>
         </div>
-        <p style="margin-top: 0;"><strong>Episode:</strong> Digital Nomad Success Stories</p>
+        <p style="margin-top: 1rem; margin-bottom: 0;"><strong>Digital Nomad Success Stories</strong></p>
     </section>
-    
-    <style>
-        .media-container {
-            position: relative;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            margin-bottom: 0.5rem; /* Reduced margin */
-            border-radius: 12px;
-        }
-        
-        .media-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-        }
-    </style>
 
-    <section>
-        <h2>📚 BOOK OF THE DAY</h2>
+    <section class="book-section">
+        <h2>📚 READ THIS</h2>
         <div class="book-container">
             <div class="book-image">
-                <img src="https://m.media-amazon.com/images/I/71nrGP9Gk8L._SY425_.jpg" alt="Book cover" style="width: 100%; height: auto;">
+                <img src="https://m.media-amazon.com/images/I/71nrGP9Gk8L._SY425_.jpg" alt="The 1-Page Marketing Plan book cover" style="width: 100%; height: auto;">
             </div>
             <div class="book-details">
-                <h3>1-Page Marketing Plan</h3>
+                <h3>The 1-Page Marketing Plan</h3>
                 <p><strong>Author:</strong> Allan Dib</p>
-                <p>In The 1-Page Marketing Plan, serial entrepreneur and rebellious marketer Allan Dib reveals a marketing implementation breakthrough that makes creating a marketing plan simple and fast. It’s literally a single page, divided up into nine squares. With it, you’ll be able to map out your own sophisticated marketing plan and go from zero to marketing hero.</p>
-                <a href="https://amzn.to/3ZmHsPn" class="cta-button">Get it on Amazon</a>
+                <p>Serial entrepreneur Allan Dib reveals a marketing implementation breakthrough that makes creating a marketing plan simple and fast. Map out your own sophisticated marketing plan and go from zero to marketing hero with a single page divided into nine squares.</p>
+                <a href="https://amzn.to/3ZmHsPn" class="cta-button" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>📖 SKILL OF THE DAY</h2>
-        <div class="resource">
-            <h3>Learn Python for Digital Nomads</h3>
-            <p>Master Python programming and unlock high-paying remote work opportunities. This Coursera specialization is perfect for aspiring digital nomads who want to break into tech.</p>
-            <p><strong>What you'll learn:</strong></p>
-            <ul>
-                <li>Python fundamentals</li>
-                <li>Web development basics</li>
-                <li>Data analysis for business</li>
-                <li>Automation techniques</li>
-            </ul>
-            <a href="#" class="cta-button">Start Learning on Coursera</a>
+        <h2>💡 DON'T FUCK THIS UP</h2>
+        <div class="tip">
+            <p>Set up a proper morning routine. Your morning sets the tone for your entire workday. Create a ritual that energizes you - whether it's meditation, exercise, or simply enjoying your coffee in peace. Your WiFi will probably die at 2pm anyway, so get your important work done early.</p>
         </div>
     </section>
 
-    <section>
-        <h2>🎮 FUN TRAVEL/WORK GADGET OF THE DAY</h2>
+    <section data-section="skill">
+        <h2>📖 SKILL UP</h2>
+        <div class="resource">
+            <h3>Learn Python for Remote Work</h3>
+            <p>Master Python programming and unlock high-paying remote work opportunities. This specialization is perfect for aspiring digital nomads who want to break into tech and earn $80k+ from anywhere.</p>
+            <p><strong>What you'll learn:</strong></p>
+            <ul>
+                <li>Python fundamentals that actually matter</li>
+                <li>Web development basics</li>
+                <li>Data analysis for business decisions</li>
+                <li>Automation to work less, earn more</li>
+            </ul>
+            <a href="#" class="cta-button">Start Learning</a>
+        </div>
+    </section>
+
+    <section data-section="gadget">
+        <h2>🔌 GEAR YOU NEED</h2>
         <div class="gadget-container">
             <div class="gadget-image">
-                <img src="/api/placeholder/200/200" alt="Gadget of the day" style="width: 100%; height: auto;">
+                <img src="/api/placeholder/200/200" alt="Portable second monitor" style="width: 100%; height: auto;">
             </div>
             <div class="gadget-details">
                 <h3>Portable Second Monitor</h3>
                 <p>Boost your productivity anywhere with this ultra-slim portable monitor. Perfect for digital nomads who need extra screen real estate without the bulk.</p>
-                <p><strong>Why we love it:</strong> Weighs just 1.3 pounds, USB-C powered, and works with any laptop.</p>
-                <a href="#" class="cta-button">Check it out on Amazon</a>
+                <p><strong>Why it's essential:</strong> Weighs just 1.3 pounds, USB-C powered, works with any laptop. No more squinting at a 13-inch screen while debugging code in a café.</p>
+                <a href="#" class="cta-button">Check Price</a>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>✍️ BLOG OF THE DAY</h2>
-        <article class="blog-content">
-            <h3>How I Found My Remote Work Rhythm in Bali</h3>
-            <p class="blog-date">December 5, 2024</p>
-            <img src="/api/placeholder/800/400" alt="Working from Bali" class="blog-image">
-            <p>When I first landed in Bali, I had no idea how to balance the island life with my work commitments. Three months later, I've cracked the code...</p>
-            <a href="#" class="cta-button">Read More</a>
-        </article>
-    </section>
-
-    <section>
-        <h2>💡 REMOTE WORK TIP OF THE DAY</h2>
-        <div class="tip">
-            <p>Set up a proper morning routine. Your morning sets the tone for your entire workday. Create a ritual that energizes you - whether it's meditation, exercise, or simply enjoying your coffee in peace.</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>🔧 DIGITAL NOMAD TOOLKIT</h2>
+    <section class="quick-section" data-section="toolkit">
+        <h2>🔧 TOOLKIT</h2>
         <div class="resource">
-            <p><strong>Essential Tool:</strong> NordVPN - Because public WiFi in beach cafes isn't exactly Fort Knox.</p>
-            <p><strong>Why it matters:</strong> Secure your sensitive work data while hopping between coworking spaces and cafes.</p>
-            <a href="#" class="cta-button">Get Protected Now</a>
+            <p><strong>Essential Tool:</strong> NordVPN</p>
+            <p><strong>Why it matters:</strong> Because public WiFi in beach cafes isn't exactly Fort Knox. Secure your sensitive work data while hopping between coworking spaces and cafes. Your clients' data is worth more than the $3 monthly subscription.</p>
+            <a href="#" class="cta-button">Get Protected</a>
         </div>
     </section>
 
-    <section>
-        <h2>💼 REMOTE JOB OF THE DAY</h2>
+    <section data-section="job">
+        <h2>💼 JOB LISTING</h2>
         <div class="resource">
             <h3>Senior Full Stack Developer</h3>
             <p><strong>Company:</strong> RemoteFirst Inc.</p>
-            <p><strong>Salary Range:</strong> $120,000 - $160,000</p>
+            <p><strong>Salary:</strong> $120,000 - $160,000</p>
             <p><strong>Perks:</strong> Fully remote, flexible hours, 4-day workweek</p>
-            <p><strong>Requirements:</strong> 5+ years experience, strong JavaScript skills</p>
-            <a href="#" class="cta-button">Apply Now</a>
+            <p><strong>Requirements:</strong> 5+ years experience, strong JavaScript skills, ability to work across time zones</p>
+            <a href="#" class="cta-button">Apply</a>
         </div>
     </section>
 
-    <section>
-        <h2>🤝 COMMUNITY SPOTLIGHT</h2>
-        <div class="community-card">
-            <div class="community-image">
-                <img src="/api/placeholder/150/150" alt="Community spotlight" style="width: 100%; height: auto;">
-            </div>
-            <div class="community-details">
-                <h3>Digital Nomads Portugal</h3>
-                <p>A thriving community of 5,000+ remote workers based in Portugal. Weekly meetups, skill-sharing sessions, and the best tips for navigating the Portuguese D7 visa process.</p>
-                <a href="#" class="cta-button">Join Community</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>🌴 NOMAD DESTINATION SPOTLIGHT</h2>
+    <section data-section="destination">
+        <h2>🌴 GO HERE NEXT</h2>
         <div class="resource">
             <h3>Chiang Mai, Thailand</h3>
-            <p><strong>Cost of Living:</strong> $1,000-$2,000/month</p>
-            <p><strong>Internet Speed:</strong> Average 100Mbps</p>
-            <p><strong>Highlights:</strong></p>
+            <p><strong>Monthly Cost:</strong> $1,000-$2,000</p>
+            <p><strong>Internet:</strong> Average 100Mbps (actually works)</p>
+            <p><strong>Why you'll love it:</strong></p>
             <ul>
-                <li>Thriving digital nomad community</li>
-                <li>Affordable luxury apartments</li>
-                <li>Amazing food scene</li>
-                <li>Modern coworking spaces</li>
+                <li>Thriving community of 5,000+ digital nomads</li>
+                <li>Luxury apartments for less than your Netflix subscription</li>
+                <li>Street food that'll ruin you for home cooking</li>
+                <li>Coworking spaces with actually comfortable chairs</li>
             </ul>
-            <a href="#" class="cta-button">Learn More About Chiang Mai</a>
+            <a href="#" class="cta-button">Plan Your Trip</a>
         </div>
     </section>
 
     <footer>
-        <p>Updated daily for aspiring and current digital nomads.</p>
-        <p>Built with ❤️ by an aspiring nomad, for nomads</p>
+        <p><strong>Updated daily for aspiring and current digital nomads.</strong></p>
+        <p>Built with ❤️ by a nomad, for nomads</p>
+        <p class="affiliate-disclosure">This site contains affiliate links. We may earn a commission if you purchase through our links, at no extra cost to you. We only recommend tools and resources we actually use and believe in.</p>
     </footer>
 
+    <script src="daily-content.js"></script>
     <script>
         // Theme toggle functionality
         function toggleTheme() {
@@ -498,7 +642,7 @@
         // Social sharing functionality
         function shareOn(platform) {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Check out this awesome Digital Nomad resource!');
+            const text = encodeURIComponent('Check out Digital Nomad Daily - everything you need in one place!');
             
             const shareUrls = {
                 twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
@@ -509,7 +653,13 @@
             window.open(shareUrls[platform], '_blank', 'width=600,height=400');
         }
 
-        // Check for saved theme preference
+        // Check for saved theme preference and apply before page renders
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+
+        // Load theme on DOM ready
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
