@@ -61,7 +61,7 @@ const DAILY_CONTENT = {
             "Data analysis for business decisions",
             "Automation to work less, earn more"
         ],
-        courseUrl: "https://imp.i384100.net/552bvo" // Add Coursera/Udemy link here
+        courseUrl: "https://imp.i384100.net/552bvo" // Coursera affiliate link
     },
     
     // ============================================
@@ -73,7 +73,7 @@ const DAILY_CONTENT = {
         imageUrl: "https://m.media-amazon.com/images/I/81rsMys9S8L._AC_SL1500_.jpg",
         description: "Boost your productivity anywhere with this ultra-slim portable monitor. Perfect for digital nomads who need extra screen real estate without the bulk.",
         whyEssential: "Weighs just 1.7 pounds, USB-C powered, works with any laptop. No more squinting at a 13-inch screen while debugging code in a café.",
-        productUrl: "https://amzn.to/45phldt" // Add Amazon affiliate link here
+        productUrl: "https://amzn.to/45phldt" // Amazon affiliate link
     },
     
     // ============================================
@@ -82,29 +82,28 @@ const DAILY_CONTENT = {
     toolkit: {
         toolName: "NordVPN",
         whyMatters: "Because public WiFi in beach cafes isn't exactly Fort Knox. Secure your sensitive work data while hopping between coworking spaces and cafes. Your clients' data is worth more than the $3 monthly subscription.",
-        toolUrl: "https://nordvpn.com/special/?utm_term=&utm_content" // Add affiliate link here
+        toolUrl: "https://nordvpn.com/special/?utm_term=&utm_content" // NordVPN affiliate link
     },
 
-    // =============================================
-    // BUSINESS IDEAS
-    // =============================================
-    
+    // ============================================
+    // SIDE HUSTLE / BUSINESS IDEA
+    // ============================================
     businessIdea: {
-    title: "Start a Newsletter in Your Niche",
-    difficulty: "Beginner-Friendly",
-    startupCost: "$0-$50/month",
-    timeToFirstDollar: "2-3 months",
-    potentialIncome: "$500-$5,000/month within 6-12 months",
-    description: "Newsletters enable you to talk directly to your ideal customer who are already interested in what you have to say and offer.",
-    whyItWorks: "Key benefits...",
-    firstSteps: [
-        "Step 1: Define Your Target Audience",
-        "Step 2: Create High Quality Content",
-        "Step 3: Build Your Subscriber Base",
-        "Step 4: Choose Your Newsletter Monetization Strategies"
-    ],
-    resourceUrl: "https://mailchimp.com/resources/how-to-monetize-a-newsletter/"
-}
+        title: "Start a Newsletter in Your Niche",
+        difficulty: "Beginner-Friendly",
+        startupCost: "$0-$50/month",
+        timeToFirstDollar: "2-3 months",
+        potentialIncome: "$500-$5,000/month within 6-12 months",
+        description: "Newsletters enable you to talk directly to your ideal customer who are already interested in what you have to say and offer.",
+        whyItWorks: "Key benefits...",
+        firstSteps: [
+            "Step 1: Define Your Target Audience",
+            "Step 2: Create High Quality Content",
+            "Step 3: Build Your Subscriber Base",
+            "Step 4: Choose Your Newsletter Monetization Strategies"
+        ],
+        resourceUrl: "https://mailchimp.com/resources/how-to-monetize-a-newsletter/"
+    },
     
     // ============================================
     // DESTINATION SPOTLIGHT
@@ -119,7 +118,7 @@ const DAILY_CONTENT = {
             "Street food that'll ruin you for home cooking",
             "Coworking spaces"
         ],
-        moreInfoUrl: "https://freakingnomads.com/best-places-for-digital-nomads-in-china/" // Add link to destination guide
+        moreInfoUrl: "https://freakingnomads.com/best-places-for-digital-nomads-in-china/" // Destination guide link
     }
 };
 
@@ -175,14 +174,18 @@ function updatePageContent() {
     toolkitSection.querySelector('.resource p:nth-of-type(2)').innerHTML = `<strong>Why it matters:</strong> ${DAILY_CONTENT.toolkit.whyMatters}`;
     toolkitSection.querySelector('.cta-button').href = DAILY_CONTENT.toolkit.toolUrl;
     
-    // Job
-    const jobSection = document.querySelector('[data-section="job"]');
-    jobSection.querySelector('h3').textContent = DAILY_CONTENT.job.title;
-    jobSection.querySelector('.resource p:nth-of-type(1) strong').nextSibling.textContent = ` ${DAILY_CONTENT.job.company}`;
-    jobSection.querySelector('.resource p:nth-of-type(2) strong').nextSibling.textContent = ` ${DAILY_CONTENT.job.salary}`;
-    jobSection.querySelector('.resource p:nth-of-type(3) strong').nextSibling.textContent = ` ${DAILY_CONTENT.job.perks}`;
-    jobSection.querySelector('.resource p:nth-of-type(4) strong').nextSibling.textContent = ` ${DAILY_CONTENT.job.requirements}`;
-    jobSection.querySelector('.cta-button').href = DAILY_CONTENT.job.applyUrl;
+    // Business Idea
+    const businessSection = document.querySelector('[data-section="business"]');
+    businessSection.querySelector('h3').textContent = DAILY_CONTENT.businessIdea.title;
+    businessSection.querySelector('.difficulty').textContent = DAILY_CONTENT.businessIdea.difficulty;
+    businessSection.querySelector('.startup-cost').textContent = DAILY_CONTENT.businessIdea.startupCost;
+    businessSection.querySelector('.time-to-money').textContent = DAILY_CONTENT.businessIdea.timeToFirstDollar;
+    businessSection.querySelector('.potential-income').textContent = DAILY_CONTENT.businessIdea.potentialIncome;
+    businessSection.querySelector('.description').textContent = DAILY_CONTENT.businessIdea.description;
+    businessSection.querySelector('.why-it-works').textContent = DAILY_CONTENT.businessIdea.whyItWorks;
+    const businessSteps = businessSection.querySelector('.first-steps');
+    businessSteps.innerHTML = DAILY_CONTENT.businessIdea.firstSteps.map(step => `<li>${step}</li>`).join('');
+    businessSection.querySelector('.cta-button').href = DAILY_CONTENT.businessIdea.resourceUrl;
     
     // Destination
     const destSection = document.querySelector('[data-section="destination"]');
