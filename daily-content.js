@@ -9,7 +9,7 @@ const DAILY_CONTENT = {
     // ============================================
     // TODAY'S FOCUS
     // ============================================
-    todaysFocus: "Stop procrastinating on your side hustle. The best time to start was yesterday. The second best time is right fucking now.",
+    todaysFocus: "Stop procrastinating on your side hustle. The best time to start was yesterday. The second best time is right now.",
     
     // ============================================
     // VIDEO OF THE DAY
@@ -17,8 +17,8 @@ const DAILY_CONTENT = {
     video: {
         // Get this from YouTube URL: youtube.com/watch?v=YOUR_VIDEO_ID
         // Just copy the part after "v="
-        youtubeId: "23OxV24mvuU",
-        title: "How I Built a 6-Figure Business While Traveling"
+        youtubeId: "JBwkrOSRXFU",
+        title: "Best Places for Digital Nomads to Live in 2026"
     },
     
     // ============================================
@@ -28,7 +28,7 @@ const DAILY_CONTENT = {
         // Get embed URL from Apple Podcasts "Share Episode" -> "Embed"
         // Or use Spotify embed URL
         embedUrl: "https://embed.podcasts.apple.com/us/podcast/id1569923210?i=1000673280580",
-        title: "Digital Nomad Success Stories"
+        title: "How to Work with Your ADHD"
     },
     
     // ============================================
@@ -61,7 +61,7 @@ const DAILY_CONTENT = {
             "Data analysis for business decisions",
             "Automation to work less, earn more"
         ],
-        courseUrl: "#" // Add Coursera/Udemy link here
+        courseUrl: "https://imp.i384100.net/552bvo" // Add Coursera/Udemy link here
     },
     
     // ============================================
@@ -70,10 +70,10 @@ const DAILY_CONTENT = {
     gadget: {
         title: "Portable Second Monitor",
         // Use actual product image URL from Amazon or manufacturer
-        imageUrl: "/api/placeholder/200/200",
+        imageUrl: "https://m.media-amazon.com/images/I/81rsMys9S8L._AC_SL1500_.jpg",
         description: "Boost your productivity anywhere with this ultra-slim portable monitor. Perfect for digital nomads who need extra screen real estate without the bulk.",
-        whyEssential: "Weighs just 1.3 pounds, USB-C powered, works with any laptop. No more squinting at a 13-inch screen while debugging code in a café.",
-        productUrl: "#" // Add Amazon affiliate link here
+        whyEssential: "Weighs just 1.7 pounds, USB-C powered, works with any laptop. No more squinting at a 13-inch screen while debugging code in a café.",
+        productUrl: "https://amzn.to/45phldt" // Add Amazon affiliate link here
     },
     
     // ============================================
@@ -82,35 +82,44 @@ const DAILY_CONTENT = {
     toolkit: {
         toolName: "NordVPN",
         whyMatters: "Because public WiFi in beach cafes isn't exactly Fort Knox. Secure your sensitive work data while hopping between coworking spaces and cafes. Your clients' data is worth more than the $3 monthly subscription.",
-        toolUrl: "#" // Add affiliate link here
+        toolUrl: "https://nordvpn.com/special/?utm_term=&utm_content" // Add affiliate link here
     },
+
+    // =============================================
+    // BUSINESS IDEAS
+    // =============================================
     
-    // ============================================
-    // REMOTE JOB LISTING
-    // ============================================
-    job: {
-        title: "Senior Full Stack Developer",
-        company: "RemoteFirst Inc.",
-        salary: "$120,000 - $160,000",
-        perks: "Fully remote, flexible hours, 4-day workweek",
-        requirements: "5+ years experience, strong JavaScript skills, ability to work across time zones",
-        applyUrl: "#" // Add job application link
-    },
+    businessIdea: {
+    title: "Start a Newsletter in Your Niche",
+    difficulty: "Beginner-Friendly",
+    startupCost: "$0-$50/month",
+    timeToFirstDollar: "2-3 months",
+    potentialIncome: "$500-$5,000/month within 6-12 months",
+    description: "Newsletters enable you to talk directly to your ideal customer who are already interested in what you have to say and offer.",
+    whyItWorks: "Key benefits...",
+    firstSteps: [
+        "Step 1: Define Your Target Audience",
+        "Step 2: Create High Quality Content",
+        "Step 3: Build Your Subscriber Base",
+        "Step 4: Choose Your Newsletter Monetization Strategies"
+    ],
+    resourceUrl: "https://mailchimp.com/resources/how-to-monetize-a-newsletter/"
+}
     
     // ============================================
     // DESTINATION SPOTLIGHT
     // ============================================
     destination: {
-        name: "Chiang Mai, Thailand",
+        name: "China",
         monthlyCost: "$1,000-$2,000",
-        internetSpeed: "Average 100Mbps (actually works)",
+        internetSpeed: "200-300 Mbps in many big cities!",
         highlights: [
-            "Thriving community of 5,000+ digital nomads",
-            "Luxury apartments for less than your Netflix subscription",
+            "Growing in their digital nomad population!",
+            "High Internet Speeds in the big cities but less rent than the big cities in US.",
             "Street food that'll ruin you for home cooking",
-            "Coworking spaces with actually comfortable chairs"
+            "Coworking spaces"
         ],
-        moreInfoUrl: "#" // Add link to destination guide
+        moreInfoUrl: "https://freakingnomads.com/best-places-for-digital-nomads-in-china/" // Add link to destination guide
     }
 };
 
