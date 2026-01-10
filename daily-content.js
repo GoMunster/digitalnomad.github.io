@@ -1,93 +1,56 @@
 // ============================================
 // DIGITAL NOMAD DAILY - DAILY CONTENT UPDATE
 // ============================================
-// Update this file daily - it's the only file you need to edit!
-// Just change the values below and refresh the page.
 
 const DAILY_CONTENT = {
-    
-    // ============================================
-    // TODAY'S FOCUS
-    // ============================================
     todaysFocus: "You don't have to see the whole staircase, just take the first step.",
     
-    // ============================================
-    // VIDEO OF THE DAY
-    // ============================================
     video: {
-        // Get this from YouTube URL: youtube.com/watch?v=YOUR_VIDEO_ID
-        // Just copy the part after "v="
         youtubeId: "PTABougduks",
         title: "Take Your Creative Business from $0-$10k a Month"
     },
     
-    // ============================================
-    // PODCAST OF THE DAY
-    // ============================================
     podcast: {
-        // Get embed URL from Apple Podcasts "Share Episode" -> "Embed"
-        // Or use Spotify embed URL
         embedUrl: "https://embed.podcasts.apple.com/us/podcast/a-real-look-into-the-day-in-the-life-of-a-digital-nomad-ep-229/id1578141284?i=1000742328260",
         title: "Real Daily Life as a Digital Nomad"
     },
     
-    // ============================================
-    // BOOK OF THE DAY
-    // ============================================
     book: {
         title: "Never Eat Alone",
         author: "Keith Ferrazzi",
-        // Get image from Amazon - right click on book cover -> "Copy Image Address"
         imageUrl: "https://m.media-amazon.com/images/I/71zhs-0cYpL._SL1500_.jpg",
         description: "The secret, master networker Keith Ferrazzi claims, is in reaching out to other people. As Ferrazzi discovered in early life, what distinguishes highly successful people from everyone else is the way they use the power of relationships—so that everyone wins",
-        // Your Amazon affiliate link
         amazonUrl: "https://amzn.to/49exdBI"
     },
     
-    // ============================================
-    // REMOTE WORK TIP
-    // ============================================
     tip: "When your office is just steps away, work can bleed endlessly into personal time. Create a simple 5-minute routine: close all work tabs, write tomorrow's top 3 priorities, and physically shut your laptop. Maybe change your clothes or take a short walk around the block.",
     
-    // ============================================
-    // SKILL OF THE DAY
-    // ============================================
     skill: {
         title: "Machine Learning Engineer",
         description: "A Machine Learning Engineer builds and optimizes algorithms that enable computers to learn from data. They work with large datasets, develop models, and apply techniques like neural networks to enhance predictive accuracy.",
         learningPoints: [
             "Build ML models",
             "Build & train a neural network with TensorFlow",
-            "Apply best practices for ML development ",
+            "Apply best practices for ML development",
             "NumPy & scikit-learn, build & train supervised models for prediction & binary classification tasks"
         ],
-        courseUrl: "https://imp.i384100.net/xLVn23" // Coursera affiliate link
+        courseUrl: "https://imp.i384100.net/xLVn23"
     },
     
-    // ============================================
-    // GADGET/GEAR OF THE DAY
-    // ============================================
     gadget: {
         title: "Anker Power Bank",
-        // Use actual product image URL from Amazon or manufacturer
         imageUrl: "https://m.media-amazon.com/images/I/71JJLJnwREL._AC_SL1500_.jpg",
         description: "Slim Size, Big Power: One of the slimmest and lightest 10,000mAh portable chargers on the market. Provides 2 charges for iPhone 15, 1.93 charges for Galaxy S23, and 1.23 charges for iPad mini 6.",
         whyEssential: "What You Get: PowerCore Slim 10000, USB-C to USB-C cable, welcome guide, 18-month warranty, and friendly customer service.",
-        productUrl: "https://amzn.to/4qjxpWv" // Amazon affiliate link
+        productUrl: "https://amzn.to/4qjxpWv"
     },
     
-    // ============================================
-    // TOOLKIT ESSENTIAL
-    // ============================================
     toolkit: {
         toolName: "NordVPN",
         whyMatters: "Because public WiFi in beach cafes isn't exactly Fort Knox. Secure your sensitive work data while hopping between coworking spaces and cafes. Your clients' data is worth more than the $3 monthly subscription.",
-        toolUrl: "https://nordvpn.com/special/?utm_term=&utm_content" // NordVPN affiliate link
+        toolUrl: "https://nordvpn.com/special/?utm_term=&utm_content"
     },
 
-    // ============================================
-    // SIDE HUSTLE / BUSINESS IDEA
-    // ============================================
     businessIdea: {
         title: "Website Flipping",
         difficulty: "Intermediate",
@@ -105,9 +68,6 @@ const DAILY_CONTENT = {
         resourceUrl: "https://www.businessinsider.com/website-flipping-how-to-make-money-building-buying-website-2022-9"
     },
     
-    // ============================================
-    // DESTINATION SPOTLIGHT
-    // ============================================
     destination: {
         name: "Spain",
         monthlyCost: "$1,700-$3,000",
@@ -116,85 +76,174 @@ const DAILY_CONTENT = {
             "Digital Nomad Visa",
             "Residence Permit for up to 3 Years",
             "Free education and medical services available",
-            "Mediterrean climate and food"
+            "Mediterranean climate and food"
         ],
-        moreInfoUrl: "https://www.immigrationspain.es/en/visa-for-digital-nomads/" // Destination guide link
+        moreInfoUrl: "https://www.immigrationspain.es/en/visa-for-digital-nomads/"
     }
 };
 
-// ============================================
-// DON'T EDIT BELOW THIS LINE
-// (Unless you know what you're doing)
-// ============================================
+// Function to safely update text content
+function safeUpdateText(selector, text) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.textContent = text;
+    } else {
+        console.warn(`Element not found: ${selector}`);
+    }
+}
+
+// Function to safely update HTML content
+function safeUpdateHTML(selector, html) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.innerHTML = html;
+    } else {
+        console.warn(`Element not found: ${selector}`);
+    }
+}
+
+// Function to safely update attribute
+function safeUpdateAttr(selector, attr, value) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.setAttribute(attr, value);
+    } else {
+        console.warn(`Element not found: ${selector}`);
+    }
+}
 
 // Function to update the page content
 function updatePageContent() {
+    console.log('Updating page content...');
+    
     // Today's Focus
-    document.querySelector('.focus-section p').textContent = DAILY_CONTENT.todaysFocus;
+    safeUpdateText('.focus-section p', DAILY_CONTENT.todaysFocus);
     
     // Video
-    document.querySelector('.video-section iframe').src = `https://www.youtube.com/embed/${DAILY_CONTENT.video.youtubeId}`;
-    document.querySelector('.video-section p strong').textContent = DAILY_CONTENT.video.title;
+    safeUpdateAttr('.video-section iframe', 'src', `https://www.youtube.com/embed/${DAILY_CONTENT.video.youtubeId}`);
+    safeUpdateText('.video-section > p strong', DAILY_CONTENT.video.title);
     
     // Podcast
-    document.querySelector('.podcast-container iframe').src = DAILY_CONTENT.podcast.embedUrl;
-    document.querySelector('.podcast-section p strong').textContent = DAILY_CONTENT.podcast.title;
+    safeUpdateAttr('.podcast-container iframe', 'src', DAILY_CONTENT.podcast.embedUrl);
+    safeUpdateText('.podcast-section > p strong', DAILY_CONTENT.podcast.title);
     
     // Book
-    document.querySelector('.book-image img').src = DAILY_CONTENT.book.imageUrl;
-    document.querySelector('.book-image img').alt = `${DAILY_CONTENT.book.title} book cover`;
-    document.querySelector('.book-details h3').textContent = DAILY_CONTENT.book.title;
-    document.querySelector('.book-details p:nth-of-type(1) strong').nextSibling.textContent = ` ${DAILY_CONTENT.book.author}`;
-    document.querySelector('.book-details p:nth-of-type(2)').textContent = DAILY_CONTENT.book.description;
-    document.querySelector('.book-details .cta-button').href = DAILY_CONTENT.book.amazonUrl;
+    safeUpdateAttr('.book-image img', 'src', DAILY_CONTENT.book.imageUrl);
+    safeUpdateAttr('.book-image img', 'alt', `${DAILY_CONTENT.book.title} book cover`);
+    safeUpdateText('.book-details h3', DAILY_CONTENT.book.title);
+    
+    const bookAuthor = document.querySelector('.book-details p strong');
+    if (bookAuthor && bookAuthor.parentElement) {
+        bookAuthor.parentElement.innerHTML = `<strong>Author:</strong> ${DAILY_CONTENT.book.author}`;
+    }
+    
+    const bookDesc = document.querySelector('.book-details p:nth-of-type(2)');
+    if (bookDesc) {
+        bookDesc.textContent = DAILY_CONTENT.book.description;
+    }
+    
+    safeUpdateAttr('.book-details .cta-button', 'href', DAILY_CONTENT.book.amazonUrl);
     
     // Tip
-    document.querySelector('.tip p').textContent = DAILY_CONTENT.tip;
+    safeUpdateText('.tip p', DAILY_CONTENT.tip);
     
     // Skill
     const skillSection = document.querySelector('[data-section="skill"]');
-    skillSection.querySelector('h3').textContent = DAILY_CONTENT.skill.title;
-    skillSection.querySelector('p:first-of-type').textContent = DAILY_CONTENT.skill.description;
-    const skillList = skillSection.querySelector('ul');
-    skillList.innerHTML = DAILY_CONTENT.skill.learningPoints.map(point => `<li>${point}</li>`).join('');
-    skillSection.querySelector('.cta-button').href = DAILY_CONTENT.skill.courseUrl;
+    if (skillSection) {
+        safeUpdateText('[data-section="skill"] h3', DAILY_CONTENT.skill.title);
+        
+        const skillDesc = skillSection.querySelector('.resource > p:first-of-type');
+        if (skillDesc) {
+            skillDesc.textContent = DAILY_CONTENT.skill.description;
+        }
+        
+        const skillList = skillSection.querySelector('ul');
+        if (skillList) {
+            skillList.innerHTML = DAILY_CONTENT.skill.learningPoints.map(point => `<li>${point}</li>`).join('');
+        }
+        
+        safeUpdateAttr('[data-section="skill"] .cta-button', 'href', DAILY_CONTENT.skill.courseUrl);
+    }
     
     // Gadget
     const gadgetSection = document.querySelector('[data-section="gadget"]');
-    gadgetSection.querySelector('.gadget-image img').src = DAILY_CONTENT.gadget.imageUrl;
-    gadgetSection.querySelector('.gadget-image img').alt = DAILY_CONTENT.gadget.title;
-    gadgetSection.querySelector('h3').textContent = DAILY_CONTENT.gadget.title;
-    gadgetSection.querySelector('.gadget-details p:nth-of-type(1)').textContent = DAILY_CONTENT.gadget.description;
-    gadgetSection.querySelector('.gadget-details p:nth-of-type(2)').innerHTML = `<strong>Why it's essential:</strong> ${DAILY_CONTENT.gadget.whyEssential}`;
-    gadgetSection.querySelector('.cta-button').href = DAILY_CONTENT.gadget.productUrl;
+    if (gadgetSection) {
+        safeUpdateAttr('[data-section="gadget"] .gadget-image img', 'src', DAILY_CONTENT.gadget.imageUrl);
+        safeUpdateAttr('[data-section="gadget"] .gadget-image img', 'alt', DAILY_CONTENT.gadget.title);
+        safeUpdateText('[data-section="gadget"] h3', DAILY_CONTENT.gadget.title);
+        
+        const gadgetDesc = gadgetSection.querySelector('.gadget-details p:nth-of-type(1)');
+        if (gadgetDesc) {
+            gadgetDesc.textContent = DAILY_CONTENT.gadget.description;
+        }
+        
+        const gadgetWhy = gadgetSection.querySelector('.gadget-details p:nth-of-type(2)');
+        if (gadgetWhy) {
+            gadgetWhy.innerHTML = `<strong>Why it's essential:</strong> ${DAILY_CONTENT.gadget.whyEssential}`;
+        }
+        
+        safeUpdateAttr('[data-section="gadget"] .cta-button', 'href', DAILY_CONTENT.gadget.productUrl);
+    }
     
     // Toolkit
     const toolkitSection = document.querySelector('[data-section="toolkit"]');
-    toolkitSection.querySelector('.resource p:nth-of-type(1) strong').nextSibling.textContent = ` ${DAILY_CONTENT.toolkit.toolName}`;
-    toolkitSection.querySelector('.resource p:nth-of-type(2)').innerHTML = `<strong>Why it matters:</strong> ${DAILY_CONTENT.toolkit.whyMatters}`;
-    toolkitSection.querySelector('.cta-button').href = DAILY_CONTENT.toolkit.toolUrl;
+    if (toolkitSection) {
+        const toolNameP = toolkitSection.querySelector('.resource p:nth-of-type(1)');
+        if (toolNameP) {
+            toolNameP.innerHTML = `<strong>Essential Tool:</strong> ${DAILY_CONTENT.toolkit.toolName}`;
+        }
+        
+        const toolWhyP = toolkitSection.querySelector('.resource p:nth-of-type(2)');
+        if (toolWhyP) {
+            toolWhyP.innerHTML = `<strong>Why it matters:</strong> ${DAILY_CONTENT.toolkit.whyMatters}`;
+        }
+        
+        safeUpdateAttr('[data-section="toolkit"] .cta-button', 'href', DAILY_CONTENT.toolkit.toolUrl);
+    }
     
     // Business Idea
     const businessSection = document.querySelector('[data-section="business"]');
-    businessSection.querySelector('h3').textContent = DAILY_CONTENT.businessIdea.title;
-    businessSection.querySelector('.difficulty').textContent = DAILY_CONTENT.businessIdea.difficulty;
-    businessSection.querySelector('.startup-cost').textContent = DAILY_CONTENT.businessIdea.startupCost;
-    businessSection.querySelector('.time-to-money').textContent = DAILY_CONTENT.businessIdea.timeToFirstDollar;
-    businessSection.querySelector('.potential-income').textContent = DAILY_CONTENT.businessIdea.potentialIncome;
-    businessSection.querySelector('.description').textContent = DAILY_CONTENT.businessIdea.description;
-    businessSection.querySelector('.why-it-works').textContent = DAILY_CONTENT.businessIdea.whyItWorks;
-    const businessSteps = businessSection.querySelector('.first-steps');
-    businessSteps.innerHTML = DAILY_CONTENT.businessIdea.firstSteps.map(step => `<li>${step}</li>`).join('');
-    businessSection.querySelector('.cta-button').href = DAILY_CONTENT.businessIdea.resourceUrl;
+    if (businessSection) {
+        safeUpdateText('[data-section="business"] h3', DAILY_CONTENT.businessIdea.title);
+        safeUpdateText('[data-section="business"] .difficulty', DAILY_CONTENT.businessIdea.difficulty);
+        safeUpdateText('[data-section="business"] .startup-cost', DAILY_CONTENT.businessIdea.startupCost);
+        safeUpdateText('[data-section="business"] .time-to-money', DAILY_CONTENT.businessIdea.timeToFirstDollar);
+        safeUpdateText('[data-section="business"] .potential-income', DAILY_CONTENT.businessIdea.potentialIncome);
+        safeUpdateText('[data-section="business"] .description', DAILY_CONTENT.businessIdea.description);
+        safeUpdateText('[data-section="business"] .why-it-works', DAILY_CONTENT.businessIdea.whyItWorks);
+        
+        const businessSteps = businessSection.querySelector('.first-steps');
+        if (businessSteps) {
+            businessSteps.innerHTML = DAILY_CONTENT.businessIdea.firstSteps.map(step => `<li>${step}</li>`).join('');
+        }
+        
+        safeUpdateAttr('[data-section="business"] .cta-button', 'href', DAILY_CONTENT.businessIdea.resourceUrl);
+    }
     
     // Destination
     const destSection = document.querySelector('[data-section="destination"]');
-    destSection.querySelector('h3').textContent = DAILY_CONTENT.destination.name;
-    destSection.querySelector('.resource p:nth-of-type(1) strong').nextSibling.textContent = ` ${DAILY_CONTENT.destination.monthlyCost}`;
-    destSection.querySelector('.resource p:nth-of-type(2) strong').nextSibling.textContent = ` ${DAILY_CONTENT.destination.internetSpeed}`;
-    const destList = destSection.querySelector('ul');
-    destList.innerHTML = DAILY_CONTENT.destination.highlights.map(highlight => `<li>${highlight}</li>`).join('');
-    destSection.querySelector('.cta-button').href = DAILY_CONTENT.destination.moreInfoUrl;
+    if (destSection) {
+        safeUpdateText('[data-section="destination"] h3', DAILY_CONTENT.destination.name);
+        
+        const costP = destSection.querySelector('.resource p:nth-of-type(1)');
+        if (costP) {
+            costP.innerHTML = `<strong>Monthly Cost:</strong> ${DAILY_CONTENT.destination.monthlyCost}`;
+        }
+        
+        const internetP = destSection.querySelector('.resource p:nth-of-type(2)');
+        if (internetP) {
+            internetP.innerHTML = `<strong>Internet:</strong> ${DAILY_CONTENT.destination.internetSpeed}`;
+        }
+        
+        const destList = destSection.querySelector('ul');
+        if (destList) {
+            destList.innerHTML = DAILY_CONTENT.destination.highlights.map(highlight => `<li>${highlight}</li>`).join('');
+        }
+        
+        safeUpdateAttr('[data-section="destination"] .cta-button', 'href', DAILY_CONTENT.destination.moreInfoUrl);
+    }
+    
+    console.log('Page content updated successfully!');
 }
 
 // Run when page loads
