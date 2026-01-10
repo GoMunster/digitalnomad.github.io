@@ -9,7 +9,7 @@ const DAILY_CONTENT = {
     // ============================================
     // TODAY'S FOCUS
     // ============================================
-    todaysFocus: "Stop procrastinating on your side hustle. The best time to start was yesterday. The second best time is right now.",
+    todaysFocus: "You don't have to see the whole staircase, just take the first step.",
     
     // ============================================
     // VIDEO OF THE DAY
@@ -17,8 +17,8 @@ const DAILY_CONTENT = {
     video: {
         // Get this from YouTube URL: youtube.com/watch?v=YOUR_VIDEO_ID
         // Just copy the part after "v="
-        youtubeId: "JBwkrOSRXFU",
-        title: "Best Places for Digital Nomads to Live in 2026"
+        youtubeId: "PTABougduks",
+        title: "Take Your Creative Business from $0-$10k a Month"
     },
     
     // ============================================
@@ -27,53 +27,53 @@ const DAILY_CONTENT = {
     podcast: {
         // Get embed URL from Apple Podcasts "Share Episode" -> "Embed"
         // Or use Spotify embed URL
-        embedUrl: "https://embed.podcasts.apple.com/us/podcast/id1569923210?i=1000673280580",
-        title: "How to Work with Your ADHD"
+        embedUrl: "https://embed.podcasts.apple.com/us/podcast/a-real-look-into-the-day-in-the-life-of-a-digital-nomad-ep-229/id1578141284?i=1000742328260",
+        title: "Real Daily Life as a Digital Nomad"
     },
     
     // ============================================
     // BOOK OF THE DAY
     // ============================================
     book: {
-        title: "The 1-Page Marketing Plan",
-        author: "Allan Dib",
+        title: "Never Eat Alone",
+        author: "Keith Ferrazzi",
         // Get image from Amazon - right click on book cover -> "Copy Image Address"
-        imageUrl: "https://m.media-amazon.com/images/I/71nrGP9Gk8L._SY425_.jpg",
-        description: "Serial entrepreneur Allan Dib reveals a marketing implementation breakthrough that makes creating a marketing plan simple and fast. Map out your own sophisticated marketing plan and go from zero to marketing hero with a single page divided into nine squares.",
+        imageUrl: "https://m.media-amazon.com/images/I/71zhs-0cYpL._SL1500_.jpg",
+        description: "The secret, master networker Keith Ferrazzi claims, is in reaching out to other people. As Ferrazzi discovered in early life, what distinguishes highly successful people from everyone else is the way they use the power of relationships—so that everyone wins",
         // Your Amazon affiliate link
-        amazonUrl: "https://amzn.to/3ZmHsPn"
+        amazonUrl: "https://amzn.to/49exdBI"
     },
     
     // ============================================
     // REMOTE WORK TIP
     // ============================================
-    tip: "Set up a proper morning routine. Your morning sets the tone for your entire workday. Create a ritual that energizes you - whether it's meditation, exercise, or simply enjoying your coffee in peace. Your WiFi will probably die at 2pm anyway, so get your important work done early.",
+    tip: "When your office is just steps away, work can bleed endlessly into personal time. Create a simple 5-minute routine: close all work tabs, write tomorrow's top 3 priorities, and physically shut your laptop. Maybe change your clothes or take a short walk around the block.",
     
     // ============================================
     // SKILL OF THE DAY
     // ============================================
     skill: {
-        title: "Learn Python for Remote Work",
-        description: "Master Python programming and unlock high-paying remote work opportunities. This specialization is perfect for aspiring digital nomads who want to break into tech and earn $80k+ from anywhere.",
+        title: "Machine Learning Engineer",
+        description: "A Machine Learning Engineer builds and optimizes algorithms that enable computers to learn from data. They work with large datasets, develop models, and apply techniques like neural networks to enhance predictive accuracy.",
         learningPoints: [
-            "Python fundamentals that actually matter",
-            "Web development basics",
-            "Data analysis for business decisions",
-            "Automation to work less, earn more"
+            "Build ML models",
+            "Build & train a neural network with TensorFlow",
+            "Apply best practices for ML development ",
+            "NumPy & scikit-learn, build & train supervised models for prediction & binary classification tasks"
         ],
-        courseUrl: "https://imp.i384100.net/552bvo" // Coursera affiliate link
+        courseUrl: "https://imp.i384100.net/xLVn23" // Coursera affiliate link
     },
     
     // ============================================
     // GADGET/GEAR OF THE DAY
     // ============================================
     gadget: {
-        title: "Portable Second Monitor",
+        title: "Anker Power Bank",
         // Use actual product image URL from Amazon or manufacturer
-        imageUrl: "https://m.media-amazon.com/images/I/81rsMys9S8L._AC_SL1500_.jpg",
-        description: "Boost your productivity anywhere with this ultra-slim portable monitor. Perfect for digital nomads who need extra screen real estate without the bulk.",
-        whyEssential: "Weighs just 1.7 pounds, USB-C powered, works with any laptop. No more squinting at a 13-inch screen while debugging code in a café.",
-        productUrl: "https://amzn.to/45phldt" // Amazon affiliate link
+        imageUrl: "https://m.media-amazon.com/images/I/71JJLJnwREL._AC_SL1500_.jpg",
+        description: "Slim Size, Big Power: One of the slimmest and lightest 10,000mAh portable chargers on the market. Provides 2 charges for iPhone 15, 1.93 charges for Galaxy S23, and 1.23 charges for iPad mini 6.",
+        whyEssential: "What You Get: PowerCore Slim 10000, USB-C to USB-C cable, welcome guide, 18-month warranty, and friendly customer service.",
+        productUrl: "https://amzn.to/4qjxpWv" // Amazon affiliate link
     },
     
     // ============================================
@@ -89,36 +89,36 @@ const DAILY_CONTENT = {
     // SIDE HUSTLE / BUSINESS IDEA
     // ============================================
     businessIdea: {
-        title: "Start a Newsletter in Your Niche",
-        difficulty: "Beginner-Friendly",
-        startupCost: "$0-$50/month",
+        title: "Website Flipping",
+        difficulty: "Intermediate",
+        startupCost: "$0-$100 a Month depending on tactics used",
         timeToFirstDollar: "2-3 months",
         potentialIncome: "$500-$5,000/month within 6-12 months",
-        description: "Newsletters enable you to talk directly to your ideal customer who are already interested in what you have to say and offer.",
-        whyItWorks: "This method of community building is better than most because it doesn't depend on a social media account that could get banned, deleted, or any other issue.",
+        description: "Build high quality websites that produce money from ads and affiliates to then sell to a buyer at a high price for all the work and setup you did.",
+        whyItWorks: "Once you sort of create a formula for yourself, you can reproduce it over and over and then sell for a high price to someone that doesn't want to take the time to learn how to make it profitable.",
         firstSteps: [
             "Step 1: Define Your Target Audience",
-            "Step 2: Create High Quality Content",
-            "Step 3: Build Your Subscriber Base",
-            "Step 4: Choose Your Newsletter Monetization Strategies"
+            "Step 2: Create High Quality Content Websites Around a relevent Topic",
+            "Step 3: Monetize by applying for ad networks",
+            "Step 4: List your website for sale on sites like flippa.com"
         ],
-        resourceUrl: "https://mailchimp.com/resources/how-to-monetize-a-newsletter/"
+        resourceUrl: "https://www.businessinsider.com/website-flipping-how-to-make-money-building-buying-website-2022-9"
     },
     
     // ============================================
     // DESTINATION SPOTLIGHT
     // ============================================
     destination: {
-        name: "China",
-        monthlyCost: "$1,000-$2,000",
+        name: "Spain",
+        monthlyCost: "$1,700-$3,000",
         internetSpeed: "200-300 Mbps in many big cities!",
         highlights: [
-            "Growing in their digital nomad population!",
-            "High Internet Speeds in the big cities but less rent than the big cities in US.",
-            "Street food that'll ruin you for home cooking",
-            "Coworking spaces"
+            "Digital Nomad Visa",
+            "Residence Permit for up to 3 Years",
+            "Free education and medical services available",
+            "Mediterrean climate and food"
         ],
-        moreInfoUrl: "https://freakingnomads.com/best-places-for-digital-nomads-in-china/" // Destination guide link
+        moreInfoUrl: "https://www.immigrationspain.es/en/visa-for-digital-nomads/" // Destination guide link
     }
 };
 
